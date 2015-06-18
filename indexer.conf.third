@@ -1,0 +1,8 @@
+filter {
+  grok {
+    break_on_match => "false"
+    match => { "message" => "%{TIMESTAMP_ISO8601:optime}"}
+    match => { "message" => "%{LOGLEVEL:loglevel}"}
+    match => { "message" => "%{NUMBER:reqtime}$"}
+}
+}  
